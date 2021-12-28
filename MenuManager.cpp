@@ -4,6 +4,7 @@ using namespace std;
 
 void MenuManager::mainMenu()
 {
-	int indent{ drawTitle("Omok Game") };
+	size_t indent{ drawTitle("Omok Game") };
+	
 
 }

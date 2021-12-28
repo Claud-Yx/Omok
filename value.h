@@ -1,8 +1,7 @@
 #pragma once
 
 #include <string>
-#include <iostream>
-#include <stdarg.h>
+#include <vector>
 
 #define TITLE_SIZE 30
 
@@ -10,5 +9,7 @@ using namespace std;
 
 string drawLine(int);
 
-int drawTitle(string);
-int drawOptions(string, ...);
+size_t drawTitle(string);
+string getIndentSpace(int);
+
+int drawOptions(string, vector<string>, int placed_option=0);

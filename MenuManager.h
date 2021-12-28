@@ -5,6 +5,7 @@
 
 class MenuManager
 {
+	int placed_option{};
 public:
 	void mainMenu();
 };

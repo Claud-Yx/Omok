@@ -1,3 +1,5 @@
+#include <iostream>
+#include <algorithm>
 #include "value.h"
 
 string drawLine(int num) {
@@ -12,8 +14,8 @@ string drawLine(int num) {
 	return line;
 }
 
-int drawTitle(string title) {
-	int line_size(TITLE_SIZE - title.length());
+size_t drawTitle(string title) {
+	size_t line_size(TITLE_SIZE - title.length());
 
 	string front_line{};
 	string back_line{};
@@ -35,10 +37,26 @@ int drawTitle(string title) {
 	return front_line.length();
 }
 
-int drawOptions(string options, ...)
+string getIndentSpace(int indent)
 {
-	va_list option_list;
-	va_start(option_list, options);
+	string space{};
+	if (indent)
+		for (int i = 0; i < indent; ++i)
+			space.append(" ");
+	return space;
+}
+
+int drawOptions(string indent_space, vector<string> options, int placed_option)
+{
+	vector<string>::iterator option_iter;
+
+	for (option_iter = options.begin(); option_iter != options.end(); ++option_iter) {
+		if (distance(options.begin(), option_iter) == placed_option) {
+			cout << indent_space << "\b\b¢º " << *option_iter << endl;
+		}
+		else
+			cout << indent_space << *option_iter << endl;
+	}
 
 	return 0;
 }
